@@ -1,15 +1,18 @@
 var userFormEl = document.querySelector("#user-form");
 var nameInputEl = document.querySelector("#username");
+var repoContainerEl = document.querySelector("#repos-container");
+var repoSearchTerm = document.querySelector("#repo-search-term");
+
 
 var getUserRepos = function(user) {
     var apiUrl = "https://api.github.com/users/" + user + "/repos";
      fetch(apiUrl).then(function(response) {
          response.json().then(function(data) {
-             console.log(data);
+             displayRepos(data,user);
          });
       });
     };
-getUserRepos("lernantino");
+
 
 
 var formSubmitHandler = function(event){
@@ -28,4 +31,12 @@ var formSubmitHandler = function(event){
 
 /* fetch(apiUrl).then(function (response) { ... }); */
 userFormEl.addEventListener("submit", formSubmitHandler);
+
+var displayRepos = function(repos, searchTerm) {
+    console.log(repos);
+    console.log(searchTerm);
+    //clear old content 
+    repoContainerEl.textContent = "";
+    repoSearchTerm.textContent = searchTerm;
+}
 
