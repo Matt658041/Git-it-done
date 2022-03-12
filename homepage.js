@@ -9,7 +9,7 @@ var getUserRepos = function(user) {
          });
       });
     };
-getUserRepos();
+getUserRepos("lernantino");
 
 
 var formSubmitHandler = function(event){
