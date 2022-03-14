@@ -10,7 +10,7 @@ var getRepoIssues = function(repo) {
                 dispayIssues(data);
                 //check if api has paginated issues
                 if (response.headers.get("Link")) {
-                    (displayWarning(repo);
+                    displayWarning(repo);
                 }
             });
         }
